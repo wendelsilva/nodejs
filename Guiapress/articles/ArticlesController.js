@@ -103,4 +103,44 @@ router.post("/articles/update", (req, res) => {
     })
 })
 
+router.get("/articles/page/:num", (req, res) => {
+    var page = req.params.num;
+    var offset = 0;
+
+    var pageNumber = parseInt(page);
+
+    if(isNaN(page) || page == 1 || page == 0) {
+        offset = 0;
+    } else {
+        offset = (pageNumber - 1) * 4
+    }
+
+    console.log(offset);
+
+    Article.findAndCountAll({
+        limit: 4,
+        offset: offset
+    }).then(article => {
+
+        var next;
+        if(offset + 4 >= article.count) {
+            next = false;
+        } else {
+            next = true;
+        }
+
+        var result = {
+            next: next,
+            article: article
+        }
+
+        Category.findAll().then(categories => {
+            res.render("admin/articles/page", {
+                categories: categories,
+                result: result
+            });
+        })
+    })
+})
+
 module.exports = router;

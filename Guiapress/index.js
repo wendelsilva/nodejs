@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
+const session = require('express-session');
 
 const categoriesController = require('./categories/CategoriesController');
 const articlesController = require('./articles/ArticlesController');
@@ -14,6 +15,15 @@ const User = require('./users/User');
 // View engine setup
 app.set('view engine', 'ejs');
 
+
+// Sessions
+app.use(session({
+  secret: "secret",
+  cookie: {
+    maxAge: 3000000
+  }
+}))
+
 // Static files
 app.use(express.static('public'));
 
@@ -22,7 +32,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Database
-
 connection
     .authenticate()
     .then(() => {
@@ -30,7 +39,6 @@ connection
     }).catch((err) => {
         console.log('Erro ao se conectar: ' + err);
     })
-
 
 app.use("/", categoriesController);
 app.use("/", articlesController);

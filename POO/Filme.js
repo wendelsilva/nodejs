@@ -26,32 +26,40 @@ class Filme {
     Fechar() {
         console.log('Fechar X');
     }
+
+    Ficha() {
+        console.log("Título: " + this.titulo);
+        console.log("Ano de lançamento: " + this.ano);
+        console.log("Gênero: " + this.genero);
+    }
 }
 
 var vingadores = new Filme("Vingadores 2", 2014, "Ação", "Alguem", "2h");
 
-// vingadores.titulo = "Vingadores 2";
-// vingadores.ano = 2014;
-// vingadores.genero = "Ação";
+vingadores.Ficha();
 
-console.log(vingadores.titulo);
-console.log(vingadores.ano);
-console.log(vingadores.genero);
+// // vingadores.titulo = "Vingadores 2";
+// // vingadores.ano = 2014;
+// // vingadores.genero = "Ação";
 
-vingadores.Reporduzir();
+// console.log(vingadores.titulo);
+// console.log(vingadores.ano);
+// console.log(vingadores.genero);
 
-var hulk = new Filme();
+// vingadores.Reporduzir();
 
-console.log(hulk.titulo);
-console.log(hulk.ano);
+// var hulk = new Filme();
 
-hulk.Pausar();
+// console.log(hulk.titulo);
+// console.log(hulk.ano);
 
-var starwars = new Filme();
+// hulk.Pausar();
 
-console.log(starwars.titulo);
-console.log(starwars.ano);
+// var starwars = new Filme();
 
-starwars.Pausar();
-starwars.Avancar();
-starwars.Reporduzir();
+// console.log(starwars.titulo);
+// console.log(starwars.ano);
+
+// starwars.Pausar();
+// starwars.Avancar();
+// starwars.Reporduzir();

@@ -1,5 +1,4 @@
 # Conversor de CSV para HTML e PDF
-##
 ### Utilizando os conceitos de orientação a objetos desenvolvi está aplicação em um dos modulos da formação de nodejs, onde é possível converter arquivos csv para os formatos html e pdf
 
 Para executar a aplicação siga os seguintes passos
